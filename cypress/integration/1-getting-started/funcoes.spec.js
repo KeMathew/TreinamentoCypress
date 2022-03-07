@@ -12,6 +12,7 @@ export function entrarNoIframe(){
     //Criar
     cy.iframe(SELETECTOR.iframe).find(SELETECTOR.btn_formulario).should('be.visible').click();
     cy.iframe(SELETECTOR.iframe).find(SELETECTOR.btn_novoUsuario).click({force:true});
+    cy.wait(10000);
     cy.iframe(SELETECTOR.iframe).find('div[class="col s6"] div[class="input-field"] input[id="user_name"]').type('Kevin');
     cy.iframe(SELETECTOR.iframe).find('#user_lastname').type('Silva');
     cy.iframe(SELETECTOR.iframe).find('#user_email').type('teste@teste.com.br');
@@ -21,16 +22,17 @@ export function entrarNoIframe(){
     cy.iframe(SELETECTOR.iframe).find('#user_gender').type('Masculino');
     cy.iframe(SELETECTOR.iframe).find('#user_age').type('20');
     cy.iframe(SELETECTOR.iframe).find('input[value="Criar"]').click();
+    cy.wait(1000);
     cy.iframe(SELETECTOR.iframe).find('p[id="notice"]').contains('Usuário Criado com sucesso');
 
     //Listar
-    cy.iframe(SELETECTOR.iframe).find('a[href="/users"]').click()
-    cy.iframe(SELETECTOR.iframe).find('h5[class="center"]:Contains("Lista de Usuários")').should('be.visible')
+    cy.wait(1000);
+    cy.iframe(SELETECTOR.iframe).find('a[href="/users"]').eq(1).click();
+    cy.wait(1000);
+    cy.iframe(SELETECTOR.iframe).find('h5[class="center"]:Contains("Lista de Usuários")').should('be.visible');
 
     //Excluir
-    cy.iframe(SELETECTOR.iframe).find(SELETECTOR.btn_formulario).should('be.visible').click()
-    cy.iframe(SELETECTOR.iframe).find('a[href="/users"]').click()
-    cy.iframe(SELETECTOR.iframe).find('td a[data-confirm="Vocee está certo disso?"]').eq(0).click()
+    cy.iframe(SELETECTOR.iframe).find('td a[data-confirm="Vocee está certo disso?"]').eq(0).click();
     cy.iframe(SELETECTOR.iframe).find('p[id="notice"]:Contains("Seu Usuário foi removido com sucesso!")').should('be.visible')
 }
 
