@@ -32,7 +32,9 @@ export function entrarNoIframe(){
     cy.iframe(SELETECTOR.iframe).find('h5[class="center"]:Contains("Lista de Usuários")').should('be.visible');
 
     //Excluir
+    cy.wait(1000);
     cy.iframe(SELETECTOR.iframe).find('td a[data-confirm="Vocee está certo disso?"]').eq(0).click();
+    cy.wait(1000);
     cy.iframe(SELETECTOR.iframe).find('p[id="notice"]:Contains("Seu Usuário foi removido com sucesso!")').should('be.visible')
 }
 
