@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-iframe" />
-import {criarUsuario,listarUsuarios,excluirUsuario,entrarNoIframe, uploadArquivo} from './funcoes.spec'
+import {criarUsuario,listarUsuarios,excluirUsuario,entrarNoIframe, uploadArquivo} from './funcoes'
 
 beforeEach(()=>{
     cy.visit('https://automacaocombatista.herokuapp.com/treinamento/home')
