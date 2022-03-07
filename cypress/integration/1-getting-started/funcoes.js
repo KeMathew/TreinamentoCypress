@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-iframe" />
 
-const SELETECTOR = require('./elements.spec').Elements
+const SELETECTOR = require('./elements').Elements
 
 export function entrarNoIframe(){
     //Entrar no iframe
